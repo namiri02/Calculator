@@ -7,21 +7,27 @@ console.log('==========================');
 console.log('Please enter the operator: ');
 const op = readline.prompt();
 
-console.log('Please enter the first number: ');
-const firstnum = readline.prompt();
+console.log('How many numbers do you want to ' + op + '?');
+const quantity = readline.prompt();
 
-console.log('Please enter the second number: ');
-const secondnum = readline.prompt();
+const arr = new Array(quantity);
 
-if (op == '+'){
-    console.log('The answer is ' + (parseFloat(firstnum) + parseFloat(secondnum)));
+var total = 0;
+for (let i = 0; i < quantity; i++){
+    console.log('Please enter number ' + (i+1) + ':');
+    var current = parseFloat(readline.prompt());
+    if (op == '+'){
+        total += current;
+    }
+    else if (op == '-'){
+        total -= current;
+    }
+    else if (op == '*'){
+        total *= current;
+    }
+    else {
+        total /= current;
+    }
 }
-else if (op == '-'){
-    console.log('The answer is ' + (parseFloat(firstnum) - parseFloat(secondnum)));
-}
-else if (op == '*'){
-    console.log('The answer is ' + (parseFloat(firstnum) * parseFloat(secondnum)));
-}
-else if (op == '/'){
-    console.log('The answer is ' + (parseFloat(firstnum) / parseFloat(secondnum)));
-}
+
+console.log('The answer is: ' + total);
